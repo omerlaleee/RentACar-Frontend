@@ -11,7 +11,8 @@ export class BrandComponent implements OnInit {
 
   constructor(private brandService: BrandService) { }
 
-  brands: Brand[] = []
+  brands: Brand[] = [];
+  dataLoaded = false; 
 
   ngOnInit(): void {
     this.getBrands();
@@ -20,6 +21,7 @@ export class BrandComponent implements OnInit {
   getBrands() {
     this.brandService.getBrands().subscribe(response => {
       this.brands=response.data;
+      this.dataLoaded = true; 
     })
   }
 
