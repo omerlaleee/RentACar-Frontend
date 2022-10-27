@@ -2,53 +2,26 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<div *ngIf="dataLoaded==true">
-    <div class="row my-1">
-        <div *ngFor="let item of cars" class="card m-3" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="No Image">
-            <div class="card-body">
-                <h5 class="card-title">Car Name : {{item.carName}}</h5>
-                <p class="card-text">Description : {{item.description}}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Brand Id : {{item.brandId}}</li>
-                <li class="list-group-item">Color Id : {{item.colorId}}</li>
-                <li class="list-group-item">Model Year : {{item.modelYear}}</li>
-                <li class="list-group-item">Daily Price : {{item.dailyPrice}}</li>
-            </ul>
-            <div class="card-body text-center">
-                <a href="#" class="card-link">Details</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!--
-    <table *ngIf="dataLoaded==true" class="table my-2">
+<table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Car Name</th>
-            <th>Brand Id</th>
-            <th>Color Id</th>
+            <th>Name</th>
+            <th>Brand Name</th>
+            <th>Color Name</th>
             <th>Model Year</th>
             <th>Daily Price</th>
             <th>Description</th>
         </tr>
     </thead>
 
-
-
-    <tr *ngFor="let item of cars">
+    <tr (click)="setCurrentCar(item)" routerLink="carDetail/{{item.carId}}" *ngFor="let item of cars">
         <td>{{item.carId}}</td>
         <td>{{item.carName}}</td>
-        <td>{{item.brandId}}</td>
-        <td>{{item.colorId}}</td>
+        <td>{{item.brandName}}</td>
+        <td>{{item.colorName}}</td>
         <td>{{item.modelYear}}</td>
         <td>{{item.dailyPrice}}</td>
         <td>{{item.description}}</td>
     </tr>
 </table>
-
--->
