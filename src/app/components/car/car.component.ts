@@ -51,7 +51,6 @@ export class CarComponent implements OnInit {
   }
 
   setCurrentCar(car: CarDetailDto) {
-    console.log(car.carName);
     this.currentCar = car;
   }
 }

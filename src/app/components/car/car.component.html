@@ -15,7 +15,7 @@
         </tr>
     </thead>
 
-    <tr (click)="setCurrentCar(item)" routerLink="carDetail/{{item.carId}}" *ngFor="let item of cars">
+    <tr (click)="setCurrentCar(item)" routerLink="/carDetail/{{item.carId}}" *ngFor="let item of cars">
         <td>{{item.carId}}</td>
         <td>{{item.carName}}</td>
         <td>{{item.brandName}}</td>

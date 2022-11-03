@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
+import { CarImage } from 'src/app/models/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -12,21 +14,37 @@ import { CarService } from 'src/app/services/car.service';
 export class CarDetailComponent implements OnInit {
 
 
-  constructor(private carService: CarService, private activatedRoute: ActivatedRoute) { }
+  constructor(private carService: CarService,
+    private carImageService: CarImageService,
+    private activatedRoute: ActivatedRoute) { }
+
   dataLoaded = false;
-  carDetails: CarDetailDto;
+  carDetail: CarDetailDto;
+  carImages: CarImage[];
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.getCarById(params["carId"]);
+      this.getCarImagesByCarId(params["carId"]);
     })
-
   }
 
   getCarById(carId: number) {
     this.carService.getCarById(carId).subscribe(response => {
-      this.carDetails = response;
+      this.carDetail = response.data;
       this.dataLoaded = true;
     })
-    console.log(this.carDetails.carName + " / " + this.carDetails.colorName);
+  }
+
+  getCarImagesByCarId(carId: number) {
+    this.carImageService.getCarImagesByCarId(carId).subscribe(response => {
+      this.carImages = response.data;
+      this.dataLoaded = true;
+    })
+  }
+
+  getImagePath(carImage: CarImage): string {
+    let url: string = "https://localhost:13331/wwwroot" + carImage.imagePath
+    return url
   }
 }

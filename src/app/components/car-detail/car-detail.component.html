@@ -1,1 +1,18 @@
-<h5>{{carDetails.carName}}</h5>
+<div>
+    <img *ngFor="let item of carImages" [src]="getImagePath(item)">
+</div>
+
+<h5 *ngFor="let item of carImages">
+    Photo Url : {{item.imagePath}}
+</h5>
+
+<h5>Name : {{carDetail.carName}}</h5>
+<h5>Brand : {{carDetail.brandName}}</h5>
+<h5>Color : {{carDetail.colorName}}</h5>
+<h5>Model Year : {{carDetail.modelYear}}</h5>
+<h5>Daily Price : {{carDetail.dailyPrice}}</h5>
+<h5>Description : {{carDetail.description}}</h5>
+
+<div>
+    <img src="https://ogubs1.ogu.edu.tr/images/Esogu_logo.png">
+</div>
