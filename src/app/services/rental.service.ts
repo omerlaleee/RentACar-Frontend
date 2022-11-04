@@ -11,7 +11,7 @@ export class RentalService {
 
   constructor(private httpClient:HttpClient) { }
 
-  apiUrl="http://localhost:13331/api/rentals/getrentaldetails"
+  apiUrl="https://localhost:44329/api/rentals/getrentaldetails"
 
   getRentals():Observable<ListResponseModel<RentalDetailDto>>{
     return this.httpClient.get<ListResponseModel<RentalDetailDto>>(this.apiUrl);

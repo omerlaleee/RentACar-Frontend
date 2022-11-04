@@ -12,7 +12,7 @@ export class CarService {
 
   constructor(private httpClient: HttpClient) { }
 
-  apiUrl = "http://localhost:13331/api/";
+  apiUrl = "https://localhost:44329/api/";
 
   getCars(): Observable<ListResponseModel<CarDetailDto>> {
     let getAllUrl = this.apiUrl + "cars/getcardetails";

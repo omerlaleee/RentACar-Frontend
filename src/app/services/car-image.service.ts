@@ -11,7 +11,7 @@ export class CarImageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  apiUrl = "http://localhost:13331/api/";
+  apiUrl = "https://localhost:44329/api/";
 
   getCarImagesByCarId(carId: number): Observable<ListResponseModel<CarImage>> {
     let getCarImagesByCarId = this.apiUrl + "carimages/getcarimagesbycarid?carId=" + carId;
