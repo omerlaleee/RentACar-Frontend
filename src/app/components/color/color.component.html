@@ -2,10 +2,10 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<ul class="list-group my-2">
+<ul *ngIf="dataLoaded==true" class="list-group my-2">
     <li class="list-group-item text-center text-white bg-dark">COLORS</li>
-    <li (click)="setCurrentColor(item)" 
-    routerLink="/cars/color/{{item.colorId}}" 
-    *ngFor="let item of colors"
-    [class]="getCurrentColorClass(item)">{{item.colorName}}</li>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Filter For Colors">
+    <li (click)="setCurrentColor(item)" routerLink="/cars/color/{{item.colorId}}"
+        *ngFor="let item of colors | colorFilterPipe:filterText" [class]="getCurrentColorClass(item)">{{item.colorName}}
+    </li>
 </ul>

@@ -2,10 +2,10 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<ul class="list-group my-2">
+<ul *ngIf="dataLoaded==true" class="list-group my-2">
     <li class="list-group-item text-center text-white bg-dark">BRANDS</li>
-    <li (click)="setCurrentBrand(item)"
-    routerLink="/cars/brand/{{item.brandId}}"    
-    *ngFor="let item of brands" 
-    [class]="getCurrentBrandClass(item)">{{item.brandName}}</li>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Filter For Brands">
+    <li (click)="setCurrentBrand(item)" routerLink="/cars/brand/{{item.brandId}}"
+        *ngFor="let item of brands | brandFilterPipe:filterText" [class]="getCurrentBrandClass(item)">{{item.brandName}}
+    </li>
 </ul>

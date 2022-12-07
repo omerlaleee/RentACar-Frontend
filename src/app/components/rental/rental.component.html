@@ -22,10 +22,10 @@
         <td>{{item.brandName}}</td>
         <td>{{item.carName}}</td>
         <td>{{item.colorName}}</td>
-        <td>{{item.customerFirstName + item.customerLastName}}</td>
+        <td>{{item.customerFirstName + " " + item.customerLastName}}</td>
         <td>{{item.customerEmail}}</td>
-        <td>{{item.dailyPrice}}</td>
-        <td>{{item.rentDate}}</td>
-        <td>{{item.returnDate}}</td>
+        <td>{{item.dailyPrice | currency}}</td>
+        <td>{{item.rentDate | date:'medium'}}</td>
+        <td>{{item.returnDate | date:'medium'}}</td>
     </tr>
 </table>
